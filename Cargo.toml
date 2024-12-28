@@ -1,0 +1,10 @@
+[package]
+name = "rust-miniecho"
+version = "0.1.0"
+edition = "2021"
+
+[dependencies]
+clap = { version = "4.0", features = ["derive"] }
+# for tests
+assert_cmd = "2" 
+predicates = "3"
