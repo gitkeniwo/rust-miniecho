@@ -16,17 +16,20 @@ pub struct Config {
     omitnewline: bool,
 
     /// Actual inputs for miniecho to display
-    #[arg(
-        required = true
-    )]
-    text: Vec<String>, // use Vec<String> instead of vec to accept one or more values 
+    // text: Option<Vec<String>>, // use Vec<String> instead of vec to accept one or more values 
+    #[arg(required = true)]
+    text: Vec<String>,
 }
 
 pub fn print_join(c: &Config) {
-    let mut ending = "\n";
 
-    if c.omitnewline {
-        ending = "";
-    }
-    println!("{}{}", &c.text.join(" "), ending);
+    
+    let ending = if c.omitnewline {""} else {"\n"}; // `if` is an expression in rust 
+
+    // match &c.text {
+    //     Some(text) => print!("{}{}", text.join(" "), ending),
+    //     None => print!("{}", ending)
+    // }
+    print!("{}{}", c.text.join(" "), ending)
 }
+    
