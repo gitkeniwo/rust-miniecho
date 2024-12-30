@@ -6,7 +6,7 @@ use clap::{command, Parser};
 #[command(about = "A lesser echo utility written in rust", long_about = None)]
 pub struct Config {
 
-    /// If set true, omit Newline character at the end
+    /// Not Required: if set true, omit Newline character at the end
     #[arg(
         short = 'n',
         long = "omitnewline",
@@ -15,7 +15,7 @@ pub struct Config {
     )]
     omitnewline: bool,
 
-    /// Actual inputs for miniecho to display
+    /// Required: actual inputs for miniecho to display
     // text: Option<Vec<String>>, // use Vec<String> instead of vec to accept one or more values 
     #[arg(required = true)]
     text: Vec<String>,
